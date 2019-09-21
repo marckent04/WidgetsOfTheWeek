@@ -19,8 +19,8 @@ class _FtransitionState extends State<Ftransition> with SingleTickerProviderStat
     );
 
     final _anim = Tween(
-        begin: 0.0,
-        end: 1.0
+        begin: 1.0,
+        end: 0.0
     ).animate(_animation);
   }
 

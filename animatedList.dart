@@ -23,7 +23,15 @@ class _AnimatedListPageState extends State<AnimatedListPage> with SingleTickerPr
   @override
   void initState() {
     super.initState();
-    _animation = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    _animation = AnimationController(
+        vsync: this,
+        duration: Duration(seconds: 3)
+    );
+
+    final _anim = Tween(
+        begin: 0.0,
+        end: 1.0
+    ).animate(_animation);
   }
   @override
   Widget build(BuildContext context) {
@@ -33,9 +41,8 @@ class _AnimatedListPageState extends State<AnimatedListPage> with SingleTickerPr
           key: _listKey,
           initialItemCount: items.length,
             itemBuilder: (context, index, animation) {
-            print(index);
-              return SlideTransition(
-                  position: _animation.drive(Tween()),
+              return Card(
+//                  opacity: _animation,
                   child: listItem(items[index]),
               );
             }
